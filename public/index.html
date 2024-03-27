@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>First Onsen</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/x-icon" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+</head>
+
+<body>
+    <ons-splitter>
+        <!-- The side menu -->
+        <ons-splitter-side id="menu" collapse width="220px">
+            <ons-page>
+                <ons-list>
+                    <ons-list-item onclick="loadPage('www/about.html')">
+                        About
+                    </ons-list-item>
+                </ons-list>
+            </ons-page>
+        </ons-splitter-side>
+
+        <!-- Everything not in the side menu -->
+        <ons-splitter-content>
+            <ons-navigator id="navigator" page="www/login.html"></ons-navigator>
+        </ons-splitter-content>
+
+        <script>
+            const loadPage = (page) => {
+                document.querySelector('#menu').close();
+                document.querySelector('#navigator').bringPageTop(page, { animation: 'fade' });
+            };
+        </script>
+    </ons-splitter>
+</body>
+
+</html>
